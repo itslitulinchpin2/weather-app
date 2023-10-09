@@ -1,11 +1,10 @@
 import React from 'react'
 
 const WeatherBox = ({weather}) => {
-    console.log(weather);
   return (
     <div className="weatherBox">
         <div>{weather && weather.name}</div>
-        <h2>{weather && weather.main.temp}C / {parseFloat(weather && weather.main.temp)*1.8 + 32}F </h2>
+        <h2>{weather && weather.main.temp}C / {parseInt((weather && weather.main.temp)*1.8 + 32)}F </h2>
         <h3>{weather && weather.weather[0].description}</h3>
     </div>
   )
