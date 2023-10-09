@@ -1,0 +1,21 @@
+body {
+    background: url(https://img.freepik.com/premium-vector/clouds-stars-sun-blue-background-childrens-vector-illustration-sky_153074-219.jpg);
+    height:100vh;
+    background-repeat: none;
+    background-size: cover;
+}
+
+.container{
+ display:flex; 
+ justify-content: center;
+ align-items:center;
+ height: 100vh;
+ flex-direction: column;
+}
+
+.weatherBox{
+    border: 3px solid white;
+    padding:50px;
+    border-radius: 30px;
+    background-color: azure;
+}

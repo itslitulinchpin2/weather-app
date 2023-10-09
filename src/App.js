@@ -1,6 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 import {useState, useEffect} from 'react';
+import WeatherBox from './component/weatherBox';
+import WeatherButton from './component/weatherButton';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 //개발 순서 큰그림 정리
 //1. 앱이 실행되자 마자 현재 위치 기반 날씨를 보여준다.
 // ->useEffect()가 필요하다.
@@ -30,14 +34,17 @@ function App() {
     let data = await response.json();
     console.log("data",data);
   }
-  
+
   useEffect(()=>{
     getCurrentLocation();
   },[])
 
   return (
-    <div>
-      Welcome to Weather App!
+  <div>
+    <div className="container">
+      <WeatherBox></WeatherBox>
+      <WeatherButton></WeatherButton>
+    </div>
     </div>
   );
 }
