@@ -21,9 +21,10 @@ import ClipLoader from "react-spinners/ClipLoader";
 function App() {
 
   const [weather,setWeather]=useState(null);
-  const [loading,setLoading]=useState(false);
+  const [loading,setLoading]=useState(true);
 
   const getCurrentLocation = () =>{
+    setLoading(true)
     navigator.geolocation.getCurrentPosition((position)=>{
       let lat = position.coords.latitude
       let lon = position.coords.longitude
