@@ -19,6 +19,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 
+  const [weather,setWeather]=useState(null);
+
   const getCurrentLocation = () =>{
     navigator.geolocation.getCurrentPosition((position)=>{
       let lat = position.coords.latitude
@@ -28,11 +30,11 @@ function App() {
   }
   
   const getWeatherByCurrentLocation = async (lat,lon) => {
-    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=e59c97f8ad9f843a63a40588ff11b1df`
+    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=e59c97f8ad9f843a63a40588ff11b1df&units=metric`
     let response = await fetch(url)
     //윗줄이 비동기.
     let data = await response.json();
-    console.log("data",data);
+    setWeather(data);
   }
 
   useEffect(()=>{
@@ -42,7 +44,7 @@ function App() {
   return (
   <div>
     <div className="container">
-      <WeatherBox></WeatherBox>
+      <WeatherBox weather={weather}></WeatherBox>
       <WeatherButton></WeatherButton>
     </div>
     </div>
